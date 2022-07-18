@@ -8,3 +8,10 @@
   padding: 50px;
   background-color: slategray;
 }
+
+.credits {
+  color: white;
+  flex-wrap: row wrap;
+}
+
+#creditsA { color: aqua; }
