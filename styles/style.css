@@ -17,7 +17,8 @@
 
 .credits {
   color: white;
-  flex-wrap: column wrap;
+  margin: 0 auto;
+  padding: 6px;
 }
 
 #creditsA { color: aqua; }
