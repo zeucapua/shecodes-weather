@@ -2,8 +2,16 @@
 let timeDisplay = document.querySelector(".weather-time");
 let tempDisplay = document.querySelector(".weather-temp");
 let cityDisplay = document.querySelector(".city-display");
+let windDisplay = document.querySelector(".bi-wind");
+let humidityDisplay = document.querySelector(".bi-droplet-half");
+let weatherDesc = document.querySelector(".weather-desc");
+let weatherIcon = document.querySelector(".weather-icon");
+
 let searchForm = document.querySelector("form#search-form");
+
 let currentLocationBtn = document.querySelector("#currentlocation");
+let celsiusBtn = document.querySelector(".celsiusBtn");
+let fahrenheitBtn = document.querySelector(".fahrenheitBtn");
 
 // values
 let units = "metric";
@@ -68,6 +76,30 @@ function getTemperature(response) {
   let data = response.data;
   temp = data.main.temp;
   setTemperature(temp);
+  setWind(response);
+  setHumidity(response);
+  setWeatherDisplay(response);
+}
+
+function setWeatherDisplay(response) {
+  let data = response.data;
+  let iconCode = data.weather[0].icon;
+  let description = data.weather[0].main;
+  weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${iconCode}@2x.png`);
+  weatherDesc.innerHTML = description;
+}
+
+function setWind(response) {
+  let data = response.data;
+  let wind = data.wind.speed;
+  let result = units == "metric" ? `: ${wind} km/hr` : `: ${wind} mi/hr`;
+  windDisplay.innerHTML = result;
+}
+
+function setHumidity(response) {
+  let data = response.data;
+  let humidity = data.main.humidity;
+  humidityDisplay.innerHTML = ": " + humidity + "%";
 }
 
 function setTemperature(temperature) {
@@ -75,14 +107,20 @@ function setTemperature(temperature) {
   tempDisplay.innerHTML = result;
 }
 
-function changeUnits() {
-  units = units === "metric" ? "imperial" : "metric";
-  searchCity(city);
+function setMetric() {
+  if (units != "metric") { units = "metric"; searchCity(city); }
+}
+
+function setImperial() {
+  if (units != "imperial") { units = "imperial"; searchCity(city); }
 }
 
 // connect functions to html elements
-searchForm.addEventListener("submit", searchSubmit);
 timeDisplay.innerHTML = getCurrentTime();
-tempDisplay.addEventListener("click", changeUnits);
+searchForm.addEventListener("submit", searchSubmit);
+celsiusBtn.addEventListener("click", setMetric);
+fahrenheitBtn.addEventListener("click", setImperial);
 currentLocationBtn.addEventListener("click", getCurrentLocation);
+
+// run default
 searchCity(city);

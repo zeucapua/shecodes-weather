@@ -57,17 +57,37 @@
 
       <!-- Weather Display -->
       <div class="container">
-        <div class="row">
-          <div class="col">
+        <div class="row justify-content-start">
+          <div class="col-5">
+            <div class="container">
+              <img 
+                class="weather-icon"
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+              />
+            </div>
+            <br />
+            <div class="container">
+              <h6 class="text-white weather-desc">Clear Sky</h6>
+            </div>
+            <div class="container">
+              <div class="row justify-content-start">
+                <div class="col">
+                  <i class="bi bi-wind" style="color: whitesmoke;">: 6 km/hr</i>
+                </div>
+                <div class="col">
+                  <i class="bi bi-droplet-half" style="color: whitesmoke;">: 82%</i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
             <h3 class="text-white city-display">los angeles</h3>
             <h6 class="text-white weather-time">Tuesday 16:00</h6>
             <h1 class="text-white display-1 weather-temp"></h1>
-          </div>
-          <div class="col">
-            <i
-              class="bi bi-triangle-half temp"
-              style="font-size: 100px; color: whitesmoke;"
-            ></i>
+            <div class="d-grid gap-2 d-md-block">
+              <button class="btn btn-outline-light btn-sm celsiusBtn" type="button">Celsius</button>
+              <button class="btn btn-outline-light btn-sm fahrenheitBtn" type="button">Fahrenheit</button>
+            </div>
           </div>
         </div>
       </div>
@@ -122,7 +142,7 @@
       <br />
       <!-- Credits -->
       <div class="credits">
-        <p>Coded by <a id="creditsA" href="https://github.com/zeucapua">Zeu Capua</a></p>
+        <p>Coded by <a id="creditsA" href="https://github.com/zeucapua/shecodes-weather">Zeu Capua</a></p>
         <p>Powered by <a id="creditsA" href="https://openweathermap.org">OpenWeatherMap</a></p>
       </div>
     </div>

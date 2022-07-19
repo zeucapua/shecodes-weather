@@ -5,13 +5,19 @@
   border-radius: 30px;
   width: 750px;
   max-width: 750px;
-  padding: 50px;
+  padding: 30px;
   background-color: slategray;
+}
+
+.weather-icon {
+  margin: 0 auto;
+  width: 150px;
+  padding-left: 40px;
 }
 
 .credits {
   color: white;
-  flex-wrap: row wrap;
+  flex-wrap: column wrap;
 }
 
 #creditsA { color: aqua; }
