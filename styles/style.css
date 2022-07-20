@@ -3,16 +3,24 @@
 .weather-app {
   margin: 0 auto;
   border-radius: 30px;
-  width: 750px;
-  max-width: 750px;
+  min-width: 750px;
+  width: 900px;
   padding: 30px;
   background-color: slategray;
 }
 
 .weather-icon {
   margin: 0 auto;
-  width: 150px;
+  width: 200px;
   padding-left: 40px;
+}
+
+.forecast-icon {
+  width: 50px;
+}
+
+.col-sm-2 {
+  width: 145px;
 }
 
 .credits {
